@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'Const.dart';
+import 'package:assembly_animations/Tools/Const.dart';
+import 'CustomWidgets/CategoriesJeux.dart';
+import 'CustomWidgets/imageActivites.dart';
+import 'package:assembly_animations/Tools/ListImageActivites.dart';
 
 void main() {
   runApp(Myapp());
 }
 
 class Myapp extends StatelessWidget {
-  String jeuxSociete = "Jeux Societe";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -45,30 +47,28 @@ class Myapp extends StatelessWidget {
                 width: 50,
                 height: 50,
               ),
-              Container(
-                alignment: Alignment.topLeft,
-                child: Text(jeuxSociete, style: kCategorieJeux),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(children: [
-                Expanded(
-                  child: Container(
-                    alignment: Alignment.topLeft,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(100),
-                      ),
-                    ),
-                    width: 200,
-                    height: 200,
-                    child: Image(
-                      image: AssetImage("Assets/Images/dooble.jpg"),
-                    ),
+              Column(
+                children: [
+                  CategoriesJeux(typeJeux: "Jeux Sociéte"),
+                  SizedBox(
+                    height: 15,
                   ),
-                ),
-              ]),
+                  ListView.builder(
+                    itemCount: activites.length,
+                    itemBuilder: (context, index) {
+                      return ImagesActivites(
+                        onTap: activites[index].onTap,
+                        image: activites[index].image,
+                        nom: activites[index].nom,
+                        nombreJoueurs: activites[index].nombreJoueurs,
+                        but: activites[index].but,
+                        materiel: activites[index].materiel,
+                        deroulement: activites[index].deroulement,
+                      );
+                    },
+                  ),
+                ],
+              ),
             ],
           ),
         ),
