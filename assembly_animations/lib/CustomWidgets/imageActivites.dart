@@ -22,22 +22,13 @@ class ImagesActivites extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      child: Container(
-        margin: EdgeInsets.only(left: 10),
-        alignment: Alignment.topLeft,
-        width: 200,
-        height: 200,
-        child: InkWell(
-          onTap: (onTap),
-          child: Card(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image(
-                image: AssetImage(image),
-              ),
-            ),
-          ),
+    return Container(
+      margin: EdgeInsets.all(12),
+      // ClipRREct Permet de rendre l'image arrondi
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(15),
+        child: Image(
+          image: AssetImage(image),
         ),
       ),
     );
