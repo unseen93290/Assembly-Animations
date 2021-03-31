@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'ActivitesDescription.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'PageAccueil.dart';
+import 'Parametres.dart';
+import 'Messages.dart';
+import 'Favorite.dart';
+import 'AjoutActivites.dart';
 
 class GeneraterPage extends StatefulWidget {
   @override
@@ -14,6 +18,10 @@ class _GenraterPageState extends State<GeneraterPage> {
   final PageOption = [
     PageAcceuil(),
     ActivitesDescription(),
+    //Messages(),
+    //Favorite(),
+    //AjoutActivites(),
+    //Parametres(),
   ];
 
   @override
