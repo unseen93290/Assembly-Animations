@@ -3,7 +3,7 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 
 class ImagesActivites extends StatelessWidget {
-  var image;
+  final String image;
   var nom;
   var nombreJoueurs;
   var but;
