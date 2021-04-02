@@ -13,10 +13,13 @@ List<ImagesActivites> activites = [
       onTap: () {
         print("test");
 
-        /*Navigator.push(context,
+        BuildContext context;
+        Navigator.push(context,
             MaterialPageRoute(builder: (BuildContext context) {
-          return ActivitesDescription();
-        }));*/
+          return ActivitesDescription(
+            image: "Assets/Images/dooble.jpg",
+          );
+        }));
       }),
   ImagesActivites(
       nom: "love letter",
