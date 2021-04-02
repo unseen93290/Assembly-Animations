@@ -18,7 +18,7 @@ class PageAcceuil extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.all(30),
+            margin: EdgeInsets.all(40),
             child: TextField(
               decoration: InputDecoration(
                 fillColor: Color(0xffFFFFFF),
