@@ -12,8 +12,11 @@ var kCategorieJeux =
     TextStyle(fontSize: 36, color: Colors.white, fontWeight: FontWeight.bold);
 
 // ActivitesDescription
-var kStyleEcriture =
-    TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20);
+var kStyleEcriture = TextStyle(
+  color: Colors.black,
+  fontWeight: FontWeight.bold,
+  fontSize: 20,
+);
 
 // Dooble
 
