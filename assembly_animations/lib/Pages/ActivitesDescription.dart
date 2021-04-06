@@ -7,7 +7,23 @@ import '../CustomWidgets/DeroulerActivite.dart';
 
 class ActivitesDescription extends StatelessWidget {
   final String image;
-  ActivitesDescription({this.image});
+  final String nom;
+  final String but;
+  final String nombreJoueurs;
+  final String materiel;
+  final String deroulement;
+  final String imageLogo;
+  final String age;
+
+  ActivitesDescription(
+      {this.image,
+      this.deroulement,
+      this.materiel,
+      this.nombreJoueurs,
+      this.nom,
+      this.but,
+      this.imageLogo,
+      this.age});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,14 +46,14 @@ class ActivitesDescription extends StatelessWidget {
                 child: Image(
                   height: 150,
                   width: 150,
-                  image: AssetImage("Assets/Images/Dooblelogo.png"),
+                  image: AssetImage(imageLogo ?? 'Valeur par defaut'),
                 ),
               ),
               DeroulerActivite(
                 text: "NOM",
               ),
               CardActivitesDescription(
-                textCardActivitesDescription: "Dooble",
+                textCardActivitesDescription: nom ?? 'Valeur par defaut',
               ),
               SizedBox(
                 height: 20,
@@ -46,27 +62,29 @@ class ActivitesDescription extends StatelessWidget {
                 text: "NOMBRES JOUEURS",
               ),
               CardActivitesDescription(
-                textCardActivitesDescription: " 2 a 8 Joueurs",
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              DeroulerActivite(
-                text: "BUT",
-              ),
-              CardActivitesDescription(
                 textCardActivitesDescription:
-                    "Quel que ce soit le jeu, il faut toujours etre le plus rapide a repérer le symbole identique , entre deux cartes, le nommer à haute voix , puis prendre la carte  la poser ou la defausser selon  les regles du mini-jeu auquel vous etes en train de jouer",
+                    nombreJoueurs ?? 'Valeur par defaut',
+              ),
+              SizedBox(height: 20),
+              DeroulerActivite(text: "AGE"),
+              CardActivitesDescription(
+                  textCardActivitesDescription: age ?? 'Valeur par defaut'),
+              SizedBox(height: 20),
+              DeroulerActivite(text: "MATERIEL"),
+              CardActivitesDescription(
+                textCardActivitesDescription: materiel ?? 'Valeur par defaut',
               ),
               SizedBox(
                 height: 20,
               ),
-              DeroulerActivite(
-                text: "DEROULEMENT",
-              ),
+              DeroulerActivite(text: "BUT"),
+              CardActivitesDescription(
+                  textCardActivitesDescription: but ?? 'Valeur par defaut'),
+              SizedBox(height: 20),
+              DeroulerActivite(text: "DEROULEMENT"),
               CardActivitesDescription(
                   textCardActivitesDescription:
-                      "Au top départ les joueurs retournent leur carte.Les joueurs doivent alors trouver le symbole identique entre leur carte et celle posée au centre de la table (sur la pile).Dès qu’un joueur trouve un symbole identiqueil le nomme,s’empare de la carte concernéeet la pose devant lui sur sa carte.En prenant cette carte, une nouvelle carte centrale est ainsi révélée.La partie continue jusqu’à ce que toutes les cartes de la pioche aient été récupérées"),
+                      deroulement ?? 'Valeur par defaut'),
             ],
           ),
         ],
