@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../Tools/ListImageActivites.dart';
 import '../CustomWidgets/imageActivites.dart';
 
-class ListJeux extends StatelessWidget {
+class ListJeuxSociete extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
