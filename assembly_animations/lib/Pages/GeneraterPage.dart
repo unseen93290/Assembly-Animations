@@ -17,9 +17,8 @@ class _GenraterPageState extends State<GeneraterPage> {
 
   final PageOption = [
     PageAcceuil(),
-    ActivitesDescription(),
     //Messages(),
-    //Favorite(),
+//Favorite(),
     //AjoutActivites(),
     //Parametres(),
   ];
@@ -31,7 +30,7 @@ class _GenraterPageState extends State<GeneraterPage> {
         animationDuration: Duration(milliseconds: 100),
         height: 50,
         backgroundColor: Colors.white,
-        index: 0,
+        index: 2,
         onTap: (index) {
           print(index);
           setState(() {
@@ -41,6 +40,7 @@ class _GenraterPageState extends State<GeneraterPage> {
         items: <Widget>[
           Icon(Icons.message, size: 30, color: Colors.black),
           Icon(Icons.favorite, size: 30, color: Colors.black),
+          Icon(Icons.home, size: 30, color: Colors.black),
           Icon(Icons.add, size: 30, color: Colors.black),
           Icon(Icons.settings, size: 30, color: Colors.black),
         ],
