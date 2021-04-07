@@ -19,7 +19,7 @@ class _GenraterPageState extends State<GeneraterPage> {
   final PageOption = [
     PageAcceuil(),
     //Messages(),
-//Favorite(),
+    Favorite(),
     //AjoutActivites(),
     //Parametres(),
   ];
