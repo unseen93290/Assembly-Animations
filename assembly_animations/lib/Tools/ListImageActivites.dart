@@ -71,16 +71,3 @@ List<ImagesActivites> activites = [
       image: "Assets/Images/dooble.jpg",
       imageLogo: "Assets/Images/DoobleLogo.png"),
 ];
-
-List<ImagesActivites> jeuxCollectif = [
-  ImagesActivites(
-    nom: "Drapeau",
-    nombreJoueurs: "10 à 99",
-    but: "Blablabla",
-    materiel: "Plots , Chassuble , Poteau , Coupelles",
-    deroulement: "",
-    image: "Assets/Images/Drapeau.jpg",
-    imageLogo: "Assets/Images/DapeauLogo.jpg",
-    age: "Des 6 ans",
-  ),
-];
