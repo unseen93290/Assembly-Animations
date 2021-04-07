@@ -1,0 +1,55 @@
+import 'package:flutter/material.dart';
+import '../CustomWidgets/imageActivites.dart';
+
+List<ImagesActivites> jeuxExterrieur = [
+  ImagesActivites(
+    nom: "Drapeau",
+    nombreJoueurs: "10 à 99",
+    but: "Blablabla",
+    materiel: "Plots , Chassuble , Poteau , Coupelles",
+    deroulement: "BlaBlaBla",
+    image: "Assets/Images/Drapeau.jpg",
+    imageLogo: "Assets/Images/DrapeauLogo.png",
+    age: "Des 6 ans",
+  ),
+  ImagesActivites(
+    nom: "Drapeau",
+    nombreJoueurs: "10 à 99",
+    but: "Blablabla",
+    materiel: "Plots , Chassuble , Poteau , Coupelles",
+    deroulement: "BlaBlaBla",
+    image: "Assets/Images/Drapeau.jpg",
+    imageLogo: "Assets/Images/DrapeauLogo.png",
+    age: "Des 6 ans",
+  ),
+  ImagesActivites(
+    nom: "Drapeau",
+    nombreJoueurs: "10 à 99",
+    but: "Blablabla",
+    materiel: "Plots , Chassuble , Poteau , Coupelles",
+    deroulement: "BlaBlaBla",
+    image: "Assets/Images/Drapeau.jpg",
+    imageLogo: "Assets/Images/DrapeauLogo.png",
+    age: "Des 6 ans",
+  ),
+  ImagesActivites(
+    nom: "Drapeau",
+    nombreJoueurs: "10 à 99",
+    but: "Blablabla",
+    materiel: "Plots , Chassuble , Poteau , Coupelles",
+    deroulement: "BlaBlaBla",
+    image: "Assets/Images/Drapeau.jpg",
+    imageLogo: "Assets/Images/DrapeauLogo.png",
+    age: "Des 6 ans",
+  ),
+  ImagesActivites(
+    nom: "Drapeau",
+    nombreJoueurs: "10 à 99",
+    but: "Blablabla",
+    materiel: "Plots , Chassuble , Poteau , Coupelles",
+    deroulement: "BlaBlaBla",
+    image: "Assets/Images/Drapeau.jpg",
+    imageLogo: "Assets/Images/DrapeauLogo.png",
+    age: "Des 6 ans",
+  ),
+];
