@@ -17,10 +17,3 @@ var kStyleEcriture = TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 20,
 );
-
-// Dooble
-
-String knom = "Dooble";
-String knombreJoueurs = "2 à 8 Joueurs";
-String kbut =
-    "Quel que ce soit le jeu, il faut toujours etre le plus rapide a repérer le symbole identique , entre deux cartes, le nommer à haute voix , puis prendre la carte  la poser ou la defausser selon  les regles du mini-jeu auquel vous etes en train de jouer";
