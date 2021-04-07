@@ -5,6 +5,7 @@ import '../CustomWidgets/CategoriesJeux.dart';
 import '../CustomWidgets/imageActivites.dart';
 import 'package:assembly_animations/Tools/ListImageActivites.dart';
 import '../CustomWidgets/ListJeuxSociete.dart';
+import '../CustomWidgets/ListJeuxExterrieur.dart';
 
 class PageAcceuil extends StatelessWidget {
   @override
@@ -61,7 +62,29 @@ class PageAcceuil extends StatelessWidget {
                       SizedBox(
                         height: 15,
                       ),
-                      ListJeuxSociete(),
+                      Container(
+                        height: 200,
+                        width: 500,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
+                          itemCount: jeuxExterrieur.length,
+                          itemBuilder: (context, index) {
+                            return ImagesActivites(
+                              imageLogo: jeuxExterrieur[index].imageLogo,
+                              onTap: jeuxExterrieur[index].onTap,
+                              image: jeuxExterrieur[index].image,
+                              nom: jeuxExterrieur[index].nom,
+                              nombreJoueurs:
+                                  jeuxExterrieur[index].nombreJoueurs,
+                              but: jeuxExterrieur[index].but,
+                              materiel: jeuxExterrieur[index].materiel,
+                              deroulement: jeuxExterrieur[index].deroulement,
+                              age: jeuxExterrieur[index].age,
+                            );
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 ),
