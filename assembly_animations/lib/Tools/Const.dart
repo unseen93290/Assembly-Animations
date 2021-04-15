@@ -1,4 +1,5 @@
 import 'package:assembly_animations/Pages/ActivitesDescription.dart';
+import 'package:assembly_animations/Pages/Authentification.dart';
 import 'package:flutter/material.dart';
 
 // Page d'accueil
@@ -17,3 +18,13 @@ var kStyleEcriture = TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 20,
 );
+
+// Authentification
+
+const textInputDecoration = InputDecoration(
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20)),
+      borderSide: BorderSide(color: Colors.white),
+    ),
+    focusedBorder:
+        OutlineInputBorder(borderSide: BorderSide(color: Colors.white)));
