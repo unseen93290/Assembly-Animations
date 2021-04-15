@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "111587955046",
+    "project_id": "assembly-animation",
+    "storage_bucket": "assembly-animation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111587955046:android:40ce3fe9103c7d0cf9b8a7",
+        "android_client_info": {
+          "package_name": "com.example.assemblyanimations"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111587955046-cg12mn2lrn31gi4k07kaprbu6vda9bkn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD14IeqXu7Rz9dN3zyn_saKv1FR83rWNF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111587955046-cg12mn2lrn31gi4k07kaprbu6vda9bkn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
