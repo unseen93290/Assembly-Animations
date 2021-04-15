@@ -21,6 +21,8 @@ class Favorite extends StatelessWidget {
                 Stack(
                   children: [
                     Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)),
                       margin: EdgeInsets.all(10),
                       color: Colors.grey,
                       child: Container(
