@@ -14,23 +14,27 @@ class GeneraterPage extends StatefulWidget {
 }
 
 class _GenraterPageState extends State<GeneraterPage> {
-  int page = 0;
+  // il faut mettre la page a 2 pour pouvoir tomber sur la page home directement avant le setstate
+  int page = 2;
 
+  //Creation d'une liste pour passé de page en page
   final PageOption = [
-    PageAcceuil(),
-    //Messages(),
+    Messages(),
     Favorite(),
-    //AjoutActivites(),
-    //Parametres(),
+    PageAcceuil(),
+    AjoutActivites(),
+    Parametres(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //curvedNavigation gere la barre de navigation situé en bas
       bottomNavigationBar: CurvedNavigationBar(
         animationDuration: Duration(milliseconds: 100),
         height: 65,
         backgroundColor: Colors.white,
+        //index represente la position ou l'on se trouve au debut
         index: 2,
         onTap: (index) {
           print(index);
@@ -46,6 +50,7 @@ class _GenraterPageState extends State<GeneraterPage> {
           IconsBarNavigation(icon: Icons.settings, nom: "Parametre"),
         ],
       ),
+      // On va dans page option et on choisit l'index de page ce qui nous renvoi a nos page cree
       body: PageOption[page],
     );
   }
