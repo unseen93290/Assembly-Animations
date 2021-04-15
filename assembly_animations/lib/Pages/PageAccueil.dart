@@ -65,6 +65,7 @@ class PageAcceuil extends StatelessWidget {
                       Container(
                         height: 200,
                         width: 500,
+                        //TODO Ne pas oublier de voir coment racourcir le listView comme en haut mais en utilisant le meme Images Activites
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
