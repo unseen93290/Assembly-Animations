@@ -22,9 +22,14 @@ var kStyleEcriture = TextStyle(
 // Authentification
 
 const textInputDecoration = InputDecoration(
-    enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(20)),
-      borderSide: BorderSide(color: Colors.white),
+  border: OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.black),
+    borderRadius: BorderRadius.all(
+      Radius.circular(30),
     ),
-    focusedBorder:
-        OutlineInputBorder(borderSide: BorderSide(color: Colors.white)));
+  ),
+  errorBorder: OutlineInputBorder(
+    borderSide:
+        BorderSide(color: Colors.red, width: 1, style: BorderStyle.solid),
+  ),
+);
