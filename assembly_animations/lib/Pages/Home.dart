@@ -7,7 +7,7 @@ import 'package:assembly_animations/Tools/ListImageActivites.dart';
 import '../CustomWidgets/ListJeuxSociete.dart';
 import '../CustomWidgets/ListJeuxExterrieur.dart';
 
-class PageAcceuil extends StatelessWidget {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
