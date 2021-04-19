@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'ActivitesDescription.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'PageAccueil.dart';
+import 'Home.dart';
 import '../CustomWidgets/IconsBarNavigation.dart';
 import 'Parametres.dart';
 import 'Messages.dart';
@@ -21,7 +21,7 @@ class _GenraterPageState extends State<GeneraterPage> {
   final PageOption = [
     Messages(),
     Favorite(),
-    PageAcceuil(),
+    Home(),
     AjoutActivites(),
     Parametres(),
   ];
