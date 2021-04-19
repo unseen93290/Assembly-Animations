@@ -1,6 +1,7 @@
 import 'package:assembly_animations/Pages/Authentification.dart';
+import 'package:assembly_animations/Pages/PageAccueil.dart';
 import 'package:flutter/material.dart';
-import 'Pages/PageAccueil.dart';
+import 'Pages/Home.dart';
 import 'Pages/GeneraterPage.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class Myapp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(cardColor: Colors.white70),
       debugShowCheckedModeBanner: false,
-      home: Authentification(),
+      home: PageAccueil(),
     );
   }
 }
