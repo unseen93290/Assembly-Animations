@@ -27,6 +27,19 @@ class Home extends StatelessWidget {
             child: Column(
               children: [
                 Container(
+                  alignment: Alignment.topRight,
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.exit_to_app,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+                Container(
                   margin: EdgeInsets.all(40),
                   child: TextField(
                     decoration: InputDecoration(
