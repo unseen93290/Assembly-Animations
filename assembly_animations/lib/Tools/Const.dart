@@ -21,7 +21,7 @@ var kStyleEcriture = TextStyle(
 
 // Authentification
 
-const textInputDecoration = InputDecoration(
+const kTextInputDecoration = InputDecoration(
   border: OutlineInputBorder(
     borderSide: BorderSide(
       color: Colors.black,
@@ -46,4 +46,9 @@ const textInputDecoration = InputDecoration(
       Radius.circular(30),
     ),
   ),
+);
+
+const kTextStyleError = TextStyle(
+  color: Colors.red,
+  fontSize: 15,
 );
