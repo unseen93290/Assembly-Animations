@@ -7,6 +7,7 @@ import 'Parametres.dart';
 import 'Messages.dart';
 import 'Favorite.dart';
 import 'AjoutActivites.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class GeneraterPage extends StatefulWidget {
   @override
@@ -14,8 +15,28 @@ class GeneraterPage extends StatefulWidget {
 }
 
 class _GenraterPageState extends State<GeneraterPage> {
+  final _auth = FirebaseAuth.instance;
+  var loggedInUser;
   // il faut mettre la page a 2 pour pouvoir tomber sur la page home directement avant le setstate
   int page = 2;
+
+  @override
+  void initState() {
+    super.initState();
+    getCurrentUser();
+  }
+
+  void getCurrentUser() async {
+    try {
+      final user = await _auth.currentUser;
+      if (user != null) {
+        loggedInUser = user;
+        print(loggedInUser.email);
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
   //Creation d'une liste pour passé de page en page
   final PageOption = [
