@@ -1,4 +1,6 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:assembly_animations/CustomWidgets/RegisterButton.dart';
+import 'package:assembly_animations/CustomWidgets/TextAnimation.dart';
 import 'package:assembly_animations/Pages/Authentification.dart';
 import 'package:assembly_animations/Pages/Register.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +10,25 @@ class PageAccueil extends StatefulWidget {
   _PageAccueilState createState() => _PageAccueilState();
 }
 
-class _PageAccueilState extends State<PageAccueil> {
+class _PageAccueilState extends State<PageAccueil>
+    with SingleTickerProviderStateMixin {
+  AnimationController controller;
+  Animation animation;
+
   @override
+  /*void initState() {
+    super.initState();
+    controller =
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
+    animation = ColorTween(begin: Colors.deepOrange, end: Colors.white)
+        .animate(controller);
+    controller.forward();
+    controller.addListener(() {
+      setState(() {});
+      print(animation.value);
+    });
+  }
+*/
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -32,13 +51,9 @@ class _PageAccueilState extends State<PageAccueil> {
                         height: 70,
                       ),
                     ),
-                    Text(
-                      "Anim Box",
-                      style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
+                    TextAnimation(
+                      text: "Anim Box",
+                      duration: Duration(milliseconds: 150),
                     ),
                   ],
                 ),
