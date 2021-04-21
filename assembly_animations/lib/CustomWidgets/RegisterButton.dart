@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class RegisterButton extends StatelessWidget {
   String text;
   Function onPressed;
-  RegisterButton({this.text, this.onPressed});
+  RegisterButton({this.text, @required this.onPressed});
   @override
   Widget build(BuildContext context) {
     return Container(
