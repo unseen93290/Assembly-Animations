@@ -15,6 +15,8 @@ class _RegisterState extends State<Register> {
   final formkey = GlobalKey<FormState>();
   String email;
   String password;
+  String error = "";
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -97,14 +99,39 @@ class _RegisterState extends State<Register> {
                       }
                     } catch (e) {
                       print(e);
+                      setState(() {
+                        error = "Veuillez rentrer un email corect";
+                      });
                     }
                   }
                 },
               ),
+              Text(
+                error,
+                style: TextStyle(
+                  color: Colors.green,
+                ),
+              )
             ],
           ),
         ),
       ),
     );
+  }
+
+  Widget showAlert(String e) {
+    if (error != null) {
+      print("rentrer dans show");
+      return Container(
+          color: Colors.green,
+          child: Row(children: [
+            Text(
+              error,
+              style: TextStyle(color: Colors.green),
+            )
+          ]));
+    } else {
+      print("je sais pas pk sa marche pas ");
+    }
   }
 }
