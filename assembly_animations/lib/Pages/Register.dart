@@ -1,6 +1,9 @@
 import 'package:assembly_animations/CustomWidgets/RegisterButton.dart';
 import 'package:assembly_animations/Tools/Const.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import 'GeneraterPage.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -8,12 +11,17 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final _auth = FirebaseAuth.instance;
+  final formkey = GlobalKey<FormState>();
+  String email;
+  String password;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Container(
+        body: Form(
+          key: formkey,
           child: ListView(
             children: [
               Container(
@@ -42,25 +50,29 @@ class _RegisterState extends State<Register> {
                 height: 50,
               ),
               Container(
-                height: 50,
-                margin: EdgeInsets.only(bottom: 17, left: 20, right: 20),
-                child: TextField(
+                margin: EdgeInsets.only(bottom: 15, left: 20, right: 20),
+                child: TextFormField(
                   textAlign: TextAlign.center,
                   onChanged: (value) {
-                    print(value);
+                    email = value;
                   },
+                  validator: (value) =>
+                      value.isEmpty ? "Veuillez entrer un email" : null,
                   decoration: textInputDecoration.copyWith(
-                      hintText: "Entrer votre email"),
+                    hintText: "Entrer votre email",
+                  ),
                 ),
               ),
               Container(
-                height: 50,
-                margin: EdgeInsets.only(bottom: 10, left: 20, right: 20),
-                child: TextField(
+                margin: EdgeInsets.only(bottom: 15, left: 20, right: 20),
+                child: TextFormField(
                   textAlign: TextAlign.center,
                   onChanged: (value) {
-                    print(value);
+                    password = value;
                   },
+                  validator: (value) => password.length < 6 || password == null
+                      ? "Veuillez entrez un mot de passe d'au moin 6 catacteres"
+                      : null,
                   decoration: textInputDecoration.copyWith(
                       hintText: "Entrer votre mot de passe"),
                 ),
@@ -70,8 +82,23 @@ class _RegisterState extends State<Register> {
               ),
               RegisterButton(
                 text: "Enregistrer",
-                onPressed: () {
-                  print("Appuyer");
+                onPressed: () async {
+                  if (formkey.currentState.validate()) {
+                    try {
+                      final newUser =
+                          await _auth.createUserWithEmailAndPassword(
+                              email: email, password: password);
+                      if (newUser != null) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    GeneraterPage()));
+                      }
+                    } catch (e) {
+                      print(e);
+                    }
+                  }
                 },
               ),
             ],
