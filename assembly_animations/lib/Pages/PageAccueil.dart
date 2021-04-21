@@ -52,7 +52,7 @@ class _PageAccueilState extends State<PageAccueil>
                       ),
                     ),
                     TextAnimation(
-                      text: "Anim Box",
+                      text: "Anim Head",
                       duration: Duration(milliseconds: 150),
                     ),
                   ],
