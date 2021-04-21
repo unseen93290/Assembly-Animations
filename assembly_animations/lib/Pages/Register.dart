@@ -2,6 +2,7 @@ import 'package:assembly_animations/CustomWidgets/RegisterButton.dart';
 import 'package:assembly_animations/Tools/Const.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'GeneraterPage.dart';
 
@@ -54,13 +55,14 @@ class _RegisterState extends State<Register> {
               Container(
                 margin: EdgeInsets.only(bottom: 15, left: 20, right: 20),
                 child: TextFormField(
+                  keyboardType: TextInputType.emailAddress,
                   textAlign: TextAlign.center,
                   onChanged: (value) {
                     email = value;
                   },
                   validator: (value) =>
                       value.isEmpty ? "Veuillez entrer un email" : null,
-                  decoration: textInputDecoration.copyWith(
+                  decoration: kTextInputDecoration.copyWith(
                     hintText: "Entrer votre email",
                   ),
                 ),
@@ -72,10 +74,19 @@ class _RegisterState extends State<Register> {
                   onChanged: (value) {
                     password = value;
                   },
-                  validator: (value) => password.length < 6 || password == null
-                      ? "Veuillez entrez un mot de passe d'au moin 6 catacteres"
-                      : null,
-                  decoration: textInputDecoration.copyWith(
+                  //TODO Ne pas oubliez de factoriser le code voir video youtube surtout pour le validator
+                  validator: (value) {
+                    if (value.length <= 0) {
+                      print(value.length);
+                      return " Veuillez entrez votre mot de passe";
+                    } else if (value.length < 6) {
+                      print("champs nul");
+                      return "Votre mot de passe doit comporter minimum 6 caracteres";
+                    } else {
+                      return null;
+                    }
+                  },
+                  decoration: kTextInputDecoration.copyWith(
                       hintText: "Entrer votre mot de passe"),
                 ),
               ),
@@ -100,38 +111,17 @@ class _RegisterState extends State<Register> {
                     } catch (e) {
                       print(e);
                       setState(() {
-                        error = "Veuillez rentrer un email corect";
+                        error = "Veuillez entrer un email correct";
                       });
                     }
                   }
                 },
               ),
-              Text(
-                error,
-                style: TextStyle(
-                  color: Colors.green,
-                ),
-              )
+              Text(error, textAlign: TextAlign.center, style: kTextStyleError)
             ],
           ),
         ),
       ),
     );
-  }
-
-  Widget showAlert(String e) {
-    if (error != null) {
-      print("rentrer dans show");
-      return Container(
-          color: Colors.green,
-          child: Row(children: [
-            Text(
-              error,
-              style: TextStyle(color: Colors.green),
-            )
-          ]));
-    } else {
-      print("je sais pas pk sa marche pas ");
-    }
   }
 }
