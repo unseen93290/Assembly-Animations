@@ -43,7 +43,6 @@ class _AuthentificationState extends State<Authentification> {
                 height: 50,
               ),
               Container(
-                height: 50,
                 margin: EdgeInsets.only(bottom: 17, left: 20, right: 20),
                 child: TextField(
                   textAlign: TextAlign.center,
@@ -55,10 +54,10 @@ class _AuthentificationState extends State<Authentification> {
                 ),
               ),
               Container(
-                height: 50,
-                margin: EdgeInsets.only(bottom: 10, left: 20, right: 20),
-                child: TextField(
+                padding: EdgeInsets.only(bottom: 17, left: 20, right: 20),
+                child: TextFormField(
                   textAlign: TextAlign.center,
+                  obscureText: true,
                   onChanged: (value) {
                     print(value);
                   },
@@ -71,9 +70,7 @@ class _AuthentificationState extends State<Authentification> {
               ),
               RegisterButton(
                 text: "Connecter",
-                onPressed: () {
-                  print("Appuyer");
-                },
+                onPressed: () {},
               ),
             ],
           ),
