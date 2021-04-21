@@ -23,13 +23,27 @@ var kStyleEcriture = TextStyle(
 
 const textInputDecoration = InputDecoration(
   border: OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.black),
+    borderSide: BorderSide(
+      color: Colors.black,
+    ),
     borderRadius: BorderRadius.all(
       Radius.circular(30),
     ),
   ),
   errorBorder: OutlineInputBorder(
-    borderSide:
-        BorderSide(color: Colors.red, width: 1, style: BorderStyle.solid),
+    borderSide: BorderSide(
+      color: Colors.red,
+    ),
+    borderRadius: BorderRadius.all(
+      Radius.circular(30),
+    ),
+  ),
+  focusedErrorBorder: OutlineInputBorder(
+    borderSide: BorderSide(
+      color: Colors.red,
+    ),
+    borderRadius: BorderRadius.all(
+      Radius.circular(30),
+    ),
   ),
 );
