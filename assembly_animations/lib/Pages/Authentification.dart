@@ -14,17 +14,19 @@ class Authentification extends StatefulWidget {
 class _AuthentificationState extends State<Authentification> {
   final _auth = FirebaseAuth.instance;
   final formkey = GlobalKey<FormState>();
+  final RegExp emailRegex = RegExp(r"[a-z0-9\._-]+@[a-z0-9\._-]+\.[a-z]+");
   String email;
   String password;
   String error = "";
+  bool _isSecret = true;
 
   @override
-  void dispose() {
+  /*void dispose() {
     super.dispose();
     email.text = "";
     password.dispose();
   }
-
+*/
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -65,19 +67,26 @@ class _AuthentificationState extends State<Authentification> {
                     keyboardType: TextInputType.emailAddress,
                     textAlign: TextAlign.center,
                     validator: (value) =>
-                        value.isEmpty ? "Veuillez entrer un email" : null,
+                        value.isEmpty || !emailRegex.hasMatch(value)
+                            ? "Veuillez entrer un email valide"
+                            : null,
                     onChanged: (value) {
                       email = value;
+                      print(email);
                     },
                     decoration: kTextInputDecoration.copyWith(
-                        hintText: "Entrer votre email"),
+                        hintText: "Entrer votre email",
+                        suffixIcon: Icon(
+                          Icons.email,
+                          color: Colors.deepOrange,
+                        )),
                   ),
                 ),
                 Container(
                   padding: EdgeInsets.only(bottom: 17, left: 20, right: 20),
                   child: TextFormField(
                     textAlign: TextAlign.center,
-                    obscureText: true,
+                    obscureText: _isSecret,
                     onChanged: (value) {
                       password = value;
                     },
@@ -93,34 +102,45 @@ class _AuthentificationState extends State<Authentification> {
                       }
                     },
                     decoration: kTextInputDecoration.copyWith(
-                        hintText: "Entrer votre mot de passe"),
+                      hintText: "Entrer votre mot de passe",
+                      suffixIcon: InkWell(
+                        onTap: () => setState(() => _isSecret = !_isSecret),
+                        child: Icon(
+                          !_isSecret ? Icons.visibility : Icons.visibility_off,
+                          color: Colors.deepOrange,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                RegisterButton(
+                //TODO Faire en sorte de reinitialiser les texfield au retour du menu principale + Grizer le bouton si adresse mail non valider
                   text: "Connecter",
-                  onPressed: () async {
-                    if (formkey.currentState.validate()) {
-                      try {
-                        final user = await _auth.signInWithEmailAndPassword(
-                            email: email, password: password);
-                        if (user != null) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      GeneraterPage()));
-                        }
-                      } catch (e) {
-                        print(e);
-                        setState(() {
-                          error = "Verifier votre email ou mot de passe";
-                        });
-                      }
-                    }
-                  },
+                  onPressed: !emailRegex.hasMatch(email)
+                      ? null
+                      : () async {
+                          if (formkey.currentState.validate()) {
+                            try {
+                              final user =
+                                  await _auth.signInWithEmailAndPassword(
+                                      email: email, password: password);
+                              if (user != null) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            GeneraterPage()));
+                              }
+                            } catch (e) {
+                              print(e);
+                              setState(() {
+                                error = "Verifier votre email ou mot de passe";
+                              });
+                            }
+                          }
+                        },
                 ),
                 Text(error,
                     textAlign: TextAlign.center, style: kTextStyleError),
