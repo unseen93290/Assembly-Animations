@@ -20,3 +20,4 @@ class TextAnimation extends StatelessWidget {
     );
   }
 }
+// Creation du mot en defilement dans le debut de l'application
