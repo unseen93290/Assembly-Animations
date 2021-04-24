@@ -19,6 +19,7 @@ class _RegisterState extends State<Register> {
   String email;
   String password;
   String error = "";
+  bool isSecret = true;
 
   @override
   Widget build(BuildContext context) {
@@ -68,13 +69,14 @@ class _RegisterState extends State<Register> {
                       (value) => // validator controle si value est dit si il l'est alor il met le text sinon il fait rien
                           value.isEmpty ? "Veuillez entrer un email" : null,
                   decoration: kTextInputDecoration.copyWith(
-                    hintText: "Entrer votre email",
-                  ),
+                      hintText: "Entrer votre email",
+                      suffixIcon: Icon(Icons.email)),
                 ),
               ),
               Container(
                 margin: EdgeInsets.only(bottom: 15, left: 20, right: 20),
                 child: TextFormField(
+                  obscureText: isSecret,
                   textAlign: TextAlign.center,
                   onChanged: (value) {
                     password = value;
@@ -94,7 +96,14 @@ class _RegisterState extends State<Register> {
                     }
                   },
                   decoration: kTextInputDecoration.copyWith(
-                      hintText: "Entrer votre mot de passe"),
+                    hintText: "Entrer votre mot de passe",
+                    suffixIcon: InkWell(
+                      // Creation d'un setState pour changer l'etat lors de la pression sur l'oeil au debut is Secret est a true du coup on ne vois pas l'oeil ensuite en tapant sur l'oeil l'etat change et isSecret devien false ce qui change l'oeil
+                      onTap: () => setState(() => isSecret = !isSecret),
+                      child: Icon(
+                          isSecret ? Icons.visibility_off : Icons.visibility),
+                    ),
+                  ),
                 ),
               ),
               SizedBox(
