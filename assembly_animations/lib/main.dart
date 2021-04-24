@@ -6,6 +6,7 @@ import 'Pages/Home.dart';
 import 'Pages/GeneraterPage.dart';
 
 void main() async {
+  // Initialisation a la base du main pour firebase
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(Myapp());
