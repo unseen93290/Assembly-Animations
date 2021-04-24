@@ -26,6 +26,7 @@ class ActivitesDescription extends StatelessWidget {
       this.age});
   @override
   Widget build(BuildContext context) {
+    //TODO ne pas oubliez de cree un boutton retour
     return Scaffold(
       body: Stack(
         children: [
