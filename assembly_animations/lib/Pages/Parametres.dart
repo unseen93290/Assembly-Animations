@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Parametres extends StatelessWidget {
+  //TODO Construire la page Parametre
   @override
   Widget build(BuildContext context) {
     return Container(
