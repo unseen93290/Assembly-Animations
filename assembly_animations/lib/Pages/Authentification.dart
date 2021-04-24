@@ -10,12 +10,21 @@ class Authentification extends StatefulWidget {
   _AuthentificationState createState() => _AuthentificationState();
 }
 
+// Pour tout commentaire relatif au code voir register
 class _AuthentificationState extends State<Authentification> {
   final _auth = FirebaseAuth.instance;
   final formkey = GlobalKey<FormState>();
   String email;
   String password;
   String error = "";
+
+  @override
+  void dispose() {
+    super.dispose();
+    email.text = "";
+    password.dispose();
+  }
+
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -52,10 +61,14 @@ class _AuthentificationState extends State<Authentification> {
                 ),
                 Container(
                   margin: EdgeInsets.only(bottom: 17, left: 20, right: 20),
-                  child: TextField(
+                  child: TextFormField(
+                    keyboardType: TextInputType.emailAddress,
                     textAlign: TextAlign.center,
-                    onChanged: (value) =>
+                    validator: (value) =>
                         value.isEmpty ? "Veuillez entrer un email" : null,
+                    onChanged: (value) {
+                      email = value;
+                    },
                     decoration: kTextInputDecoration.copyWith(
                         hintText: "Entrer votre email"),
                   ),
@@ -66,6 +79,9 @@ class _AuthentificationState extends State<Authentification> {
                     textAlign: TextAlign.center,
                     obscureText: true,
                     onChanged: (value) {
+                      password = value;
+                    },
+                    validator: (value) {
                       if (value.length <= 0) {
                         print(value.length);
                         return " Veuillez entrez votre mot de passe";
@@ -85,8 +101,29 @@ class _AuthentificationState extends State<Authentification> {
                 ),
                 RegisterButton(
                   text: "Connecter",
-                  onPressed: () {},
+                  onPressed: () async {
+                    if (formkey.currentState.validate()) {
+                      try {
+                        final user = await _auth.signInWithEmailAndPassword(
+                            email: email, password: password);
+                        if (user != null) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      GeneraterPage()));
+                        }
+                      } catch (e) {
+                        print(e);
+                        setState(() {
+                          error = "Verifier votre email ou mot de passe";
+                        });
+                      }
+                    }
+                  },
                 ),
+                Text(error,
+                    textAlign: TextAlign.center, style: kTextStyleError),
               ],
             ),
           ),
