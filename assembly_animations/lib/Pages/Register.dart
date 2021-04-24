@@ -12,8 +12,10 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  final _auth = FirebaseAuth.instance;
-  final formkey = GlobalKey<FormState>();
+  final _auth =
+      FirebaseAuth.instance; // Initialisation firebase authentification
+  final formkey = GlobalKey<
+      FormState>(); // formkey sert a controler si tout est ok dans le champs
   String email;
   String password;
   String error = "";
@@ -24,7 +26,8 @@ class _RegisterState extends State<Register> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Form(
-          key: formkey,
+          // Creation formulaire
+          key: formkey, //Controle de la key
           child: ListView(
             children: [
               Container(
@@ -41,6 +44,7 @@ class _RegisterState extends State<Register> {
                 ),
               ),
               Hero(
+                // Permet de transformer le petit icon dooble en gros sur la prochaine page
                 tag: "DoobleLogo",
                 child: Container(
                   height: 200,
@@ -60,8 +64,9 @@ class _RegisterState extends State<Register> {
                   onChanged: (value) {
                     email = value;
                   },
-                  validator: (value) =>
-                      value.isEmpty ? "Veuillez entrer un email" : null,
+                  validator:
+                      (value) => // validator controle si value est dit si il l'est alor il met le text sinon il fait rien
+                          value.isEmpty ? "Veuillez entrer un email" : null,
                   decoration: kTextInputDecoration.copyWith(
                     hintText: "Entrer votre email",
                   ),
@@ -76,10 +81,12 @@ class _RegisterState extends State<Register> {
                   },
                   //TODO Ne pas oubliez de factoriser le code voir video youtube surtout pour le validator
                   validator: (value) {
+                    // validator controle si value est plus petit ou egal a 0 alor il met veuillez entrer votre mot de passe
                     if (value.length <= 0) {
                       print(value.length);
                       return " Veuillez entrez votre mot de passe";
                     } else if (value.length < 6) {
+                      // si valeur inferieur a 6 alor votre mot de passe doit comporter...
                       print("champs nul");
                       return "Votre mot de passe doit comporter minimum 6 caracteres";
                     } else {
@@ -117,7 +124,10 @@ class _RegisterState extends State<Register> {
                   }
                 },
               ),
-              Text(error, textAlign: TextAlign.center, style: kTextStyleError)
+              Text(error,
+                  textAlign: TextAlign.center,
+                  style:
+                      kTextStyleError) // on met rien si c'est bon et si c'est pas le cas alor l'eror s'affiche
             ],
           ),
         ),
