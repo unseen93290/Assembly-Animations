@@ -21,7 +21,7 @@ class _GenraterPageState extends State<GeneraterPage> {
   int page = 2;
 
   @override
-  void initState() {
+  /* void initState() {
     super.initState();
     getCurrentUser();
   }
@@ -37,7 +37,7 @@ class _GenraterPageState extends State<GeneraterPage> {
       print(e);
     }
   }
-
+*/
   //Creation d'une liste pour passé de page en page
   final PageOption = [
     Messages(),
