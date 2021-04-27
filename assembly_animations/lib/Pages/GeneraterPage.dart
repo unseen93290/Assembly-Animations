@@ -54,7 +54,9 @@ class _GenraterPageState extends State<GeneraterPage> {
       bottomNavigationBar: CurvedNavigationBar(
         animationDuration: Duration(milliseconds: 100),
         height: 65,
-        backgroundColor: Colors.white,
+        color: Colors.white70,
+        buttonBackgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Color(0xffDD985C),
         //index represente la position ou l'on se trouve au debut
         index: 2,
         onTap: (index) {
@@ -63,6 +65,7 @@ class _GenraterPageState extends State<GeneraterPage> {
             page = index;
           });
         },
+        //TODO Voir coment retirer le cerce autour des boutton
         items: <Widget>[
           IconsBarNavigation(icon: Icons.message, nom: "Message"),
           IconsBarNavigation(icon: Icons.favorite, nom: "Favoris"),
