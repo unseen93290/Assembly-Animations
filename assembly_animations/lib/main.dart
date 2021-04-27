@@ -16,7 +16,8 @@ class Myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(cardColor: Colors.white70),
+      theme:
+          ThemeData(cardColor: Colors.white70, primaryColor: Color(0xffDD985C)),
       debugShowCheckedModeBanner: false,
       home: PageAccueil(),
     );
