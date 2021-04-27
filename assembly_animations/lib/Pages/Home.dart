@@ -9,6 +9,8 @@ import '../CustomWidgets/ListJeuxExterrieur.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Home extends StatelessWidget {
+  String email;
+  String password;
   final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
@@ -21,12 +23,7 @@ class Home extends StatelessWidget {
             child: Container(
               height: 1300,
               width: 1300,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-                  Color(0xffE77F20),
-                  Color(0xffffffff),
-                ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-              ),
+              color: Color(0xffDD985C),
               child: Column(
                 children: [
                   Container(
@@ -39,6 +36,7 @@ class Home extends StatelessWidget {
                       ),
                       onPressed: () {
                         _auth.signOut();
+
                         Navigator.pop(context);
                       },
                     ),
