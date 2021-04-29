@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 
 class Favorite extends StatelessWidget {
   @override
@@ -10,36 +11,29 @@ class Favorite extends StatelessWidget {
           child: Container(
             height: 1300,
             width: 1300,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Color(0xffE77F20),
-                Color(0xffffffff),
-              ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
-            ),
-            child: ListView(
-              children: [
-                Stack(
-                  children: [
-                    Card(
+            color: Theme.of(context).primaryColor,
+            child: SafeArea(
+              child: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(
+                        left: 10, right: 10, top: 30, bottom: 30),
+                    height: 100,
+                    width: 600,
+                    child: Card(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30)),
-                      margin: EdgeInsets.all(10),
-                      color: Colors.grey,
-                      child: Container(
-                        height: 100,
-                        child: Opacity(
-                          opacity: 0.4,
-                          child: Image(
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                            image: AssetImage("Assets/Images/dooble.jpg"),
+                          side: BorderSide(
+                            color: Colors.black,
                           ),
-                        ),
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Image.asset(
+                        "Assets/Images/Drapeau.jpg",
+                        fit: BoxFit.cover,
                       ),
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
