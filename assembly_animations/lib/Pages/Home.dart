@@ -36,7 +36,6 @@ class Home extends StatelessWidget {
                       ),
                       onPressed: () {
                         _auth.signOut();
-
                         Navigator.pop(context);
                       },
                     ),
