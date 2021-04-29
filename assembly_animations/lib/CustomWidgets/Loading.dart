@@ -4,6 +4,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 class Loading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print("loading");
     return Container(
       color: Colors.white,
       child: Center(
