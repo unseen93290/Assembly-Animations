@@ -10,8 +10,6 @@ import '../CustomWidgets/ListJeuxExterrieur.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Home extends StatelessWidget {
-  String email;
-  String password;
   final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
