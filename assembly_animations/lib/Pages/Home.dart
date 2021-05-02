@@ -1,3 +1,4 @@
+import 'package:assembly_animations/CustomWidgets/SignOut.dart';
 import 'package:assembly_animations/Pages/ActivitesDescription.dart';
 import 'package:flutter/material.dart';
 import 'package:assembly_animations/Tools/Const.dart';
@@ -28,12 +29,7 @@ class Home extends StatelessWidget {
                 children: [
                   Container(
                     alignment: Alignment.topRight,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.exit_to_app,
-                        color: Colors.white,
-                        size: 30,
-                      ),
+                    child: SigntOut(
                       onPressed: () {
                         _auth.signOut();
                         Navigator.pop(context);
