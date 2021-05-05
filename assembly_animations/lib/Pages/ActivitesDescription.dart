@@ -1,7 +1,6 @@
+import 'package:assembly_animations/CustomWidgets/SignOut.dart';
 import 'package:flutter/material.dart';
 
-import '../Tools/ListImageActivites.dart';
-import '../Tools/Const.dart';
 import '../CustomWidgets/CardActivitesDescription.dart';
 import '../CustomWidgets/DeroulerActivite.dart';
 
