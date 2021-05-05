@@ -29,6 +29,7 @@ class ImagesActivites extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        //TODO Cree une animation grace a PageRouteBuilder si oublie voir david youtube
         Navigator.push(context,
             MaterialPageRoute(builder: (BuildContext context) {
           return ActivitesDescription(
