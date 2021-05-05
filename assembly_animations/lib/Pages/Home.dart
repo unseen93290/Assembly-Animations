@@ -1,10 +1,10 @@
 import 'package:assembly_animations/CustomWidgets/SignOut.dart';
-import 'package:assembly_animations/Pages/ActivitesDescription.dart';
+
 import 'package:flutter/material.dart';
-import 'package:assembly_animations/Tools/Const.dart';
+
 import '../CustomWidgets/CategoriesJeux.dart';
 import '../CustomWidgets/imageActivites.dart';
-import 'package:assembly_animations/Tools/ListImageActivites.dart';
+
 import '../CustomWidgets/ListJeuxSociete.dart';
 import '../CustomWidgets/ListJeuxExterrieur.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -22,7 +22,8 @@ class Home extends StatelessWidget {
             child: Container(
               height: 1300,
               width: 1300,
-              color: Color(0xffDD985C),
+              //TODO Voir youtube comment faire une curve pour avoir qu'une partie de l'ecan en cette couleur
+              color: Theme.of(context).primaryColor,
               child: Column(
                 children: [
                   Container(
