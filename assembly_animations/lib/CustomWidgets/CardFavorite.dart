@@ -3,15 +3,15 @@ import 'package:provider/provider.dart';
 
 class CardFavorite extends StatefulWidget {
   String image;
-
   String nom;
-  CardFavorite({this.image, this.nom});
+  bool favorite;
+  CardFavorite({this.image, this.nom, this.favorite = true});
+  // Ne pas oubliez on met favorite = true dans le constructeur car a l'initialisation si favorite ne renvoi rien alor le constructeur le met a null
   @override
   _CardFavoriteState createState() => _CardFavoriteState();
 }
 
 class _CardFavoriteState extends State<CardFavorite> {
-  bool favorite = true;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,6 +27,7 @@ class _CardFavoriteState extends State<CardFavorite> {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: AssetImage(
+                    //widget.image permet d'utiliser la variable image dans un stateful widget voir plus haut
                     widget.image,
                   ),
                 ),
@@ -37,15 +38,16 @@ class _CardFavoriteState extends State<CardFavorite> {
             child: IconButton(
               iconSize: 40,
               color: Colors.black,
-              icon:
-                  favorite ? Icon(Icons.favorite) : Icon(Icons.favorite_border),
+              icon: widget.favorite
+                  ? Icon(Icons.favorite)
+                  : Icon(Icons.favorite_border),
               onPressed: () {
                 setState(() {
-                  //TODO Demander a mohamed pourquoi quand je met savorite dans la premiere parti du stateful et que j'utilise widget.favorite je me retrouve avec un nul alor que sa fonctionne pour l'image
-                  if (favorite == true) {
-                    favorite = false;
+                  //TODO Demander a mohamed pourquoi quand je met Favorite dans la premiere parti du stateful et que j'utilise widget.favorite je me retrouve avec un nul alor que sa fonctionne pour l'image
+                  if (widget.favorite == true) {
+                    widget.favorite = false;
                   } else {
-                    favorite = true;
+                    widget.favorite = true;
                   }
                 });
               },
