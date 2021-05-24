@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'ActivitesDescription.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -21,23 +22,7 @@ class _GenraterPageState extends State<GeneraterPage> {
   int page = 2;
 
   @override
-  /* void initState() {
-    super.initState();
-    getCurrentUser();
-  }
 
-  void getCurrentUser() async {
-    try {
-      final user = await _auth.currentUser;
-      if (user != null) {
-        loggedInUser = user;
-        print(loggedInUser.email);
-      }
-    } catch (e) {
-      print(e);
-    }
-  }
-*/
   //Creation d'une liste pour passé de page en page
   final PageOption = [
     Messages(),
@@ -52,10 +37,13 @@ class _GenraterPageState extends State<GeneraterPage> {
     return Scaffold(
       //curvedNavigation gere la barre de navigation situé en bas
       bottomNavigationBar: CurvedNavigationBar(
+        //TODO Voir comment redessendre le boutton car dans activiter description sa gene le text + parametre quand on est dans la page le e depasse
+        animationCurve: Curves.slowMiddle,
         animationDuration: Duration(milliseconds: 100),
         height: 65,
         color: Colors.white70,
-        buttonBackgroundColor: Theme.of(context).primaryColor,
+        buttonBackgroundColor:
+            Colors.transparent, //Theme.of(context).primaryColor,
         backgroundColor: Color(0xffDD985C),
         //index represente la position ou l'on se trouve au debut
         index: 2,
