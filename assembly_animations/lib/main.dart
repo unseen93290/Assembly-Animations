@@ -16,6 +16,7 @@ class Myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      //TODO Essayer de remplacer le themeData par un Provider
       theme:
           ThemeData(cardColor: Colors.white70, primaryColor: Color(0xffDD985C)),
       debugShowCheckedModeBanner: false,
