@@ -1,5 +1,7 @@
 import 'package:assembly_animations/Pages/ActivitesDescription.dart';
+import 'package:assembly_animations/Pages/AjoutActivites.dart';
 import 'package:assembly_animations/Pages/Authentification.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Page d'accueil
@@ -57,4 +59,30 @@ const kTextInputDecoration = InputDecoration(
 const kTextStyleError = TextStyle(
   color: Colors.red,
   fontSize: 15,
+);
+
+// AjoutActivites
+
+const kTextFormFieldDecoration = InputDecoration(
+  isDense: true,
+  fillColor: Colors.white,
+  filled: true,
+  border: OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.black),
+    borderRadius: BorderRadius.all(
+      Radius.circular(20),
+    ),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.black),
+    borderRadius: BorderRadius.all(
+      Radius.circular(20),
+    ),
+  ),
+  errorBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.red),
+    borderRadius: BorderRadius.all(
+      Radius.circular(20),
+    ),
+  ),
 );
