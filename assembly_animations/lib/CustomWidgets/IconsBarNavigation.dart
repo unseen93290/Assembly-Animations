@@ -9,6 +9,7 @@ class IconsBarNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.transparent,
       child: Column(
         children: [
           SizedBox(
