@@ -25,7 +25,6 @@ class ActivitesDescription extends StatelessWidget {
       this.age});
   @override
   Widget build(BuildContext context) {
-    //TODO ne pas oubliez de cree un boutton retour
     return Scaffold(
       body: Stack(
         children: [
@@ -42,6 +41,14 @@ class ActivitesDescription extends StatelessWidget {
           ),
           ListView(
             children: [
+              Container(
+                //color: Colors.black,
+                //padding: EdgeInsets.only(top: 25),
+                alignment: Alignment.topRight,
+                child: SigntOut(onPressed: () {
+                  Navigator.pop(context);
+                }),
+              ),
               ClipRRect(
                 child: Image(
                   height: 150,
