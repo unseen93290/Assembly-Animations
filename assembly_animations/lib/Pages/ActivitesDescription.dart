@@ -42,8 +42,6 @@ class ActivitesDescription extends StatelessWidget {
           ListView(
             children: [
               Container(
-                //color: Colors.black,
-                //padding: EdgeInsets.only(top: 25),
                 alignment: Alignment.topRight,
                 child: SigntOut(onPressed: () {
                   Navigator.pop(context);
