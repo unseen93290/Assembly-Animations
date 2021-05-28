@@ -2,6 +2,7 @@ import 'package:assembly_animations/CustomWidgets/RegisterButton.dart';
 import 'package:assembly_animations/Tools/Const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AjoutActivites extends StatefulWidget {
   @override
@@ -9,6 +10,10 @@ class AjoutActivites extends StatefulWidget {
 }
 
 class _AjoutActivitesState extends State<AjoutActivites> {
+  PickedFile imageFile;
+  final ImagePicker picker =
+      ImagePicker(); // Voir utilisation sur pubdev de imagePicket
+
   String nom;
   String nombreJoueurs;
   String but;
@@ -35,6 +40,7 @@ class _AjoutActivitesState extends State<AjoutActivites> {
           child: Form(
             key: formkey,
             child: ListView(
+              //TODO Remplacer les sizedBox part un padding
               padding: EdgeInsets.all(10),
               children: [
                 Container(
@@ -54,11 +60,11 @@ class _AjoutActivitesState extends State<AjoutActivites> {
                             Icons.add_a_photo_outlined,
                             size: 40,
                           ),
-                          onPressed: () => AlertDialog(
-                            title: Text(
-                              "Choisir photo",
-                            ),
-                          ),
+                          onPressed: () => showModalBottomSheet(
+                              //showModal permet de cree une fenetre s'ouvrant vert le bas lors de la pression de l'utilisateur
+                              context: context,
+                              builder: ((builder) =>
+                                  bottomSheet())), // Creation Widget qui a un container de mise en forme de la fenetre vu precedement
                         ),
                       ),
                       SizedBox(
@@ -86,14 +92,17 @@ class _AjoutActivitesState extends State<AjoutActivites> {
                     dropdownColor: Colors.white,
                     style: TextStyle(color: Colors.black),
                     items: listJeux.map((var valueItem) {
+                      // le widget permet d'afficher un menu deroulant voila comment se presente les chose , la map recupere toute la liste et la value item represente le premier element de celle ci
                       return DropdownMenuItem<String>(
                         child: Text(valueItem),
-                        value: valueItem,
+                        value: valueItem, // Declaration de valueItem
                       );
-                    }).toList(),
-                    value: valuechoose,
+                    }).toList(), // Obligation de convertir en list car le drop menu ne fonctionne que par liste
+                    value:
+                        valuechoose, // Declaration de la valeur qu'on va utiliser dans les menus
                     onChanged: (newValue) => setState(() {
-                      valuechoose = newValue;
+                      valuechoose =
+                          newValue; // Une foi que la valeur est choisit dans le menu on fait un setState pour changer la valeur de newValue en Valuechoose
                     }),
                   ),
                 ),
@@ -170,6 +179,53 @@ class _AjoutActivitesState extends State<AjoutActivites> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  void takePhoto(ImageSource source) async {
+    //take photo fait parti de image picker voir yaml permet de donc de recuperer une foto a partir de l'appareil ou de la galerie
+    final pickedFile = await picker.getImage(
+        source:
+            source); // Ne pas oubliez de la mettre asychrone . Limage source represente la methode (ex appareil photo ou galery)
+    setState(() {
+      imageFile = pickedFile;
+    });
+  }
+
+  Widget bottomSheet() {
+    return Container(
+      height: 100,
+      width: double.infinity,
+      child: Column(
+        children: [
+          Text("Choisissez votre photo"),
+          // ignore: deprecated_member_use
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton.icon(
+                  onPressed: () {
+                    //TextButton.icon remplace le flatbutton.icon
+                    takePhoto(ImageSource.camera);
+                  },
+                  icon: Icon(Icons.camera, color: Colors.deepOrange),
+                  label: Text(
+                    "Appareil photo",
+                    style: TextStyle(color: Colors.deepOrange),
+                  )),
+              TextButton.icon(
+                  onPressed: () {
+                    takePhoto(ImageSource.camera);
+                  },
+                  icon: Icon(Icons.image, color: Colors.deepOrange),
+                  label: Text(
+                    "Gallery",
+                    style: TextStyle(color: Colors.deepOrange),
+                  )),
+            ],
+          ),
+        ],
       ),
     );
   }
