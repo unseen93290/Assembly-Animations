@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class RegisterButton extends StatelessWidget {
   String text;
   Function onPressed;
-  RegisterButton({this.text, @required this.onPressed});
+  Color color;
+  RegisterButton({this.text, @required this.onPressed, this.color});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +19,7 @@ class RegisterButton extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         height: 50,
-        color: Colors.deepOrange,
+        color: color,
       ),
     );
   }
