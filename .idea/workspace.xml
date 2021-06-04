@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="284a629e-616b-4755-b513-b345982f43f0" name="Default Changelist" comment="" />
+    <list default="true" id="284a629e-616b-4755-b513-b345982f43f0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Assembly-Animations.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Assembly-Animations.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assembly_animations/lib/CustomWidgets/CardFavorite.dart" beforeDir="false" afterPath="$PROJECT_DIR$/assembly_animations/lib/CustomWidgets/CardFavorite.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assembly_animations/lib/CustomWidgets/IconsBarNavigation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/assembly_animations/lib/CustomWidgets/IconsBarNavigation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assembly_animations/lib/CustomWidgets/imageActivites.dart" beforeDir="false" afterPath="$PROJECT_DIR$/assembly_animations/lib/CustomWidgets/imageActivites.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assembly_animations/lib/Pages/ActivitesDescription.dart" beforeDir="false" afterPath="$PROJECT_DIR$/assembly_animations/lib/Pages/ActivitesDescription.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assembly_animations/lib/Pages/GeneraterPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/assembly_animations/lib/Pages/GeneraterPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assembly_animations/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/assembly_animations/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assembly_animations/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/assembly_animations/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assembly_animations/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/assembly_animations/pubspec.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +43,10 @@
     <property name="android.sdk.path" value="$PROJECT_DIR$/../../../../flutter" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assembly_animations/Assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../stock_gestionnary" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -56,6 +74,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -82,38 +101,50 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="693" y="314" key="#com.intellij.ide.util.TreeFileChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618334921106" />
-    <state x="104" y="104" width="1720" height="840" key="AVDManager" timestamp="1618418811853">
+    <state x="655" y="263" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1620209380548">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="104" y="104" width="1720" height="840" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1618418811853" />
-    <state x="783" y="270" key="AndroidProcessChooserDialog" timestamp="1616858462089">
+    <state x="655" y="263" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620209380548" />
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1618738088277">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="783" y="270" key="AndroidProcessChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616858462089" />
-    <state x="744" y="279" key="FileChooserDialogImpl" timestamp="1617341655117">
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618738088277" />
+    <state x="104" y="104" width="1720" height="840" key="AVDManager" timestamp="1621258997875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="744" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617341655117" />
-    <state width="1858" height="239" key="GridCell.Tab.0.bottom" timestamp="1618422281609">
+    <state x="104" y="104" width="1720" height="840" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1621258997875" />
+    <state x="783" y="270" key="AndroidProcessChooserDialog" timestamp="1619167083836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1858" height="239" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618422281609" />
-    <state width="1858" height="239" key="GridCell.Tab.0.center" timestamp="1618422281609">
+    <state x="783" y="270" key="AndroidProcessChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619167083836" />
+    <state width="449" height="466" key="DebuggerActiveHint" timestamp="1619346768044">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1858" height="239" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618422281609" />
-    <state width="1858" height="239" key="GridCell.Tab.0.left" timestamp="1618422281609">
+    <state width="449" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1619346768044" />
+    <state x="744" y="279" key="FileChooserDialogImpl" timestamp="1621258944528">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1858" height="239" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618422281609" />
-    <state width="1858" height="239" key="GridCell.Tab.0.right" timestamp="1618422281609">
+    <state x="744" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1621258944528" />
+    <state width="1877" height="277" key="GridCell.Tab.0.bottom" timestamp="1621282056811">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1858" height="239" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618422281609" />
-    <state x="282" y="191" key="SettingsEditor" timestamp="1616942058265">
+    <state width="1877" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1621282056811" />
+    <state width="1877" height="277" key="GridCell.Tab.0.center" timestamp="1621282056811">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="282" y="191" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1616942058265" />
+    <state width="1877" height="277" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1621282056811" />
+    <state width="1877" height="277" key="GridCell.Tab.0.left" timestamp="1621282056811">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="277" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1621282056811" />
+    <state width="1877" height="277" key="GridCell.Tab.0.right" timestamp="1621282056811">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="277" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1621282056811" />
+    <state x="343" y="48" key="SettingsEditor" timestamp="1619520665282">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="343" y="48" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1619520665282" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1616511360422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
