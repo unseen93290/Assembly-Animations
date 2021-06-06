@@ -100,6 +100,7 @@ class _AuthentificationState extends State<Authentification> {
               ),
               //TODO Faire en sorte de reinitialiser les texfield au retour du menu principale + Grizer le bouton si adresse mail non valider
               RegisterButton(
+                color: Colors.deepOrange,
                 text: "Connecter",
                 onPressed: () async {
                   if (formkey.currentState.validate()) {
