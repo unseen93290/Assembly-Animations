@@ -110,6 +110,7 @@ class _RegisterState extends State<Register> {
                 height: 10,
               ),
               RegisterButton(
+                color: Colors.deepOrange,
                 text: "Enregistrer",
                 onPressed: () async {
                   if (formkey.currentState.validate()) {
