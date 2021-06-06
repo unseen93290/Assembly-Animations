@@ -53,7 +53,8 @@ class _GenraterPageState extends State<GeneraterPage> {
             page = index;
           });
         },
-        //TODO Voir coment retirer le cerce autour des boutton
+        //TODO Voir coment retirer le cerce autour des boutton voir aussi comment modifier les icon sur youtube historique
+
         items: <Widget>[
           IconsBarNavigation(icon: Icons.message, nom: "Message"),
           IconsBarNavigation(icon: Icons.favorite, nom: "Favoris"),
