@@ -63,6 +63,7 @@ class _PageAccueilState extends State<PageAccueil>
               height: 60,
             ),
             RegisterButton(
+              color: Colors.deepOrange,
               text: "Enregistrez vous",
               onPressed: () {
                 Navigator.push(
@@ -76,6 +77,7 @@ class _PageAccueilState extends State<PageAccueil>
               height: 20,
             ),
             RegisterButton(
+              color: Colors.deepOrange,
               text: "Connectez vous",
               onPressed: () {
                 Navigator.push(
