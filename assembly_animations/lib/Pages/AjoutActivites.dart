@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:assembly_animations/CustomWidgets/RegisterButton.dart';
 import 'package:assembly_animations/Tools/Const.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,9 +12,8 @@ class AjoutActivites extends StatefulWidget {
 }
 
 class _AjoutActivitesState extends State<AjoutActivites> {
-  PickedFile imageFile;
-  final ImagePicker picker =
-      ImagePicker(); // Voir utilisation sur pubdev de imagePicket
+  File imageFile;
+  final picker = ImagePicker(); // Voir utilisation sur pubdev de imagePicket
 
   String nom;
   String nombreJoueurs;
@@ -53,19 +54,32 @@ class _AjoutActivitesState extends State<AjoutActivites> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        alignment: Alignment.center,
-                        child: IconButton(
-                          icon: Icon(
-                            Icons.add_a_photo_outlined,
-                            size: 40,
-                          ),
-                          onPressed: () => showModalBottomSheet(
-                              //showModal permet de cree une fenetre s'ouvrant vert le bas lors de la pression de l'utilisateur
-                              context: context,
-                              builder: ((builder) =>
-                                  bottomSheet())), // Creation Widget qui a un container de mise en forme de la fenetre vu precedement
-                        ),
+                      InkWell(
+                        onTap: () => showModalBottomSheet(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                              ),
+                            ),
+                            //TODO Faire en sorte que la photo choisit dans la gallery ou prise en photo ce mette dans le container
+                            //showModal permet de cree une fenetre s'ouvrant vert le bas lors de la pression de l'utilisateur
+                            context: context,
+                            builder: ((builder) => bottomSheet())),
+                        child: Container(
+                            alignment: Alignment.center,
+                            child: imageFile == null
+                                ? Icon(
+                                    Icons.add_a_photo_outlined,
+                                    size: 40,
+                                  )
+                                : Image(
+                                    // A ne pas oubliez filleImage n'est pas un widget il doit donc etre utilisé avec image pour afficher
+
+                                    height: 70,
+                                    width: 120,
+                                    image: FileImage(File(imageFile.path)),
+                                  )),
                       ),
                       SizedBox(
                         height: 10,
@@ -90,7 +104,8 @@ class _AjoutActivitesState extends State<AjoutActivites> {
                     underline: SizedBox(),
                     hint: Text("Choisissez une categorie de jeux"),
                     dropdownColor: Colors.white,
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.w500),
                     items: listJeux.map((var valueItem) {
                       // le widget permet d'afficher un menu deroulant voila comment se presente les chose , la map recupere toute la liste et la value item represente le premier element de celle ci
                       return DropdownMenuItem<String>(
@@ -171,6 +186,7 @@ class _AjoutActivitesState extends State<AjoutActivites> {
                 ),
                 SizedBox(height: 20),
                 RegisterButton(
+                    color: Colors.deepOrangeAccent,
                     text: "Valider",
                     onPressed: () => formkey.currentState.validate()
                         ? print("Enregistrer")
@@ -183,49 +199,83 @@ class _AjoutActivitesState extends State<AjoutActivites> {
     );
   }
 
-  void takePhoto(ImageSource source) async {
+  Future takePhotoCamera() async {
     //take photo fait parti de image picker voir yaml permet de donc de recuperer une foto a partir de l'appareil ou de la galerie
     final pickedFile = await picker.getImage(
-        source:
-            source); // Ne pas oubliez de la mettre asychrone . Limage source represente la methode (ex appareil photo ou galery)
+        source: ImageSource
+            .camera); // Ne pas oubliez de la mettre asychrone . Limage source represente la methode (ex appareil photo ou galery)
     setState(() {
-      imageFile = pickedFile;
+      if (pickedFile != null) {
+        imageFile = File(pickedFile.path);
+      } else {
+        print("no image");
+      }
+    });
+  }
+
+  Future takePhotoGallery() async {
+    //take photo fait parti de image picker voir yaml permet de donc de recuperer une foto a partir de l'appareil ou de la galerie
+    final pickedFile = await picker.getImage(
+        source: ImageSource
+            .gallery); // Ne pas oubliez de la mettre asychrone . Limage source represente la methode (ex appareil photo ou galery)
+    setState(() {
+      if (pickedFile != null) {
+        imageFile = File(pickedFile.path);
+      } else {
+        print("no image");
+      }
     });
   }
 
   Widget bottomSheet() {
-    return Container(
-      height: 100,
-      width: double.infinity,
-      child: Column(
-        children: [
-          Text("Choisissez votre photo"),
-          // ignore: deprecated_member_use
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextButton.icon(
-                  onPressed: () {
-                    //TextButton.icon remplace le flatbutton.icon
-                    takePhoto(ImageSource.camera);
-                  },
-                  icon: Icon(Icons.camera, color: Colors.deepOrange),
-                  label: Text(
-                    "Appareil photo",
-                    style: TextStyle(color: Colors.deepOrange),
-                  )),
-              TextButton.icon(
-                  onPressed: () {
-                    takePhoto(ImageSource.camera);
-                  },
-                  icon: Icon(Icons.image, color: Colors.deepOrange),
-                  label: Text(
-                    "Gallery",
-                    style: TextStyle(color: Colors.deepOrange),
-                  )),
-            ],
-          ),
-        ],
+    return Padding(
+      padding: EdgeInsets.only(left: 20, right: 20),
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        height: 100,
+        child: Column(
+          children: [
+            Text(
+              "Choisissez votre photo",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
+            // ignore: deprecated_member_use
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton.icon(
+                    onPressed: () {
+                      //TextButton.icon remplace le flatbutton.icon
+                      takePhotoCamera();
+                    },
+                    icon: Icon(
+                      Icons.camera,
+                      color: Theme.of(context).primaryColor,
+                      size: 35,
+                    ),
+                    label: Text(
+                      "Appareil photo",
+                      style: TextStyle(
+                          color: Theme.of(context).primaryColor, fontSize: 20),
+                    )),
+                TextButton.icon(
+                    onPressed: () {
+                      takePhotoGallery();
+                    },
+                    icon: Icon(
+                      Icons.image,
+                      color: Theme.of(context).primaryColor,
+                      size: 35,
+                    ),
+                    label: Text(
+                      "Gallery",
+                      style: TextStyle(
+                          color: Theme.of(context).primaryColor, fontSize: 20),
+                    )),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
